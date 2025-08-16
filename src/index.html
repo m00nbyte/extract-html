@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Extract HTML using CSS selectors</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.50.0/min/vs/editor/editor.main.css" />
+        <script src="https://cdn.jsdelivr.net/combine/npm/requirejs@2.3.7/require.min.js,npm/monaco-editor@0.50.0/min/vs/loader.js"></script>
+        <link rel="stylesheet" href="bundle.min.css" />
+        <script type="module" src="bundle.min.js"></script>
+    </head>
+    <body class="flex flex-col justify-between h-screen gap-8 px-10 pt-10 text-white md:px-20 bg-stone-900">
+        <div class="flex flex-col gap-8">
+            <h1 class="flex items-center justify-between pb-4 text-3xl font-bold border-b-2 border-stone-400">
+                <span>Extract HTML using CSS selectors</span>
+                <a href="https://github.com/m00nbyte/extract-html" target="_blank">
+                    <div class="i-[mdi-github]"></div>
+                </a>
+            </h1>
+
+            <div class="flex flex-col gap-4">
+                <p class="text-xl">
+                    This tool provides a simple and interactive way to inspect and extract HTML code using CSS selectors.
+                </p>
+                <p class="text-xl">
+                    Just input your HTML structure, specify any CSS selector, and instantly see the matched elements displayed
+                    below.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <div id="editorInput" class="border-2 h-80 border-stone-500"></div>
+
+                <div class="flex flex-row items-center gap-6">
+                    <input
+                        type="text"
+                        id="selectorInput"
+                        class="w-full p-2 text-lg transition-colors border-2 border-stone-500 bg-stone-800 focus:border-blue-500 focus:outline-none"
+                        placeholder="Enter CSS selector"
+                        autocomplete="off"
+                    />
+                    <div class="flex flex-col items-center justify-center gap-1">
+                        <span class="text-sm font-semibold">Content</span>
+                        <label class="relative flex items-center cursor-pointer select-none w-max">
+                            <input
+                                type="checkbox"
+                                id="toggleContent"
+                                class="h-6 transition-colors appearance-none cursor-pointer w-14 bg-rose-400 focus:outline-none focus:ring-0"
+                            />
+                            <span class="absolute text-xs font-medium text-white uppercase right-1"> No </span>
+                            <span class="absolute text-xs font-medium text-white uppercase right-8"> Yes </span>
+                            <span class="absolute h-6 transition-transform transform right-7 w-7 bg-stone-600" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div id="editorOutput" class="border-2 h-80 border-stone-500"></div>
+
+                    <button
+                        id="copyButton"
+                        class="absolute hidden px-2 py-2 transition-colors rounded-md top-2 right-2 hover:bg-stone-700"
+                    >
+                        <div class="i-[mdi-clipboard-text] copy-icon"></div>
+                        <div class="hidden text-xs copy-finish">Copied!</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" class="flex flex-row items-center justify-center gap-1 pb-5">
+            <span>made with</span>
+            <div class="i-[mdi-heart] text-red-600"></div>
+            <span>by <a href="https://moonbyte.at/" target="_blank" class="underline">moonbyte</a></span>
+        </div>
+    </body>
+</html>
